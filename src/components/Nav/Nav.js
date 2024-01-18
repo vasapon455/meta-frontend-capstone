@@ -1,7 +1,15 @@
+import "./Nav.css";
+
 export default function Nav() {
   return (
     <nav>
-      <img src="assets/Logo.svg" alt="logo"></img>
+      <img
+        className="logo"
+        src="assets/Logo.svg"
+        alt="logo"
+        width="148px"
+        height="40px"
+      ></img>
       <ul>
         <li>
           <a href="#Home">Home</a>
