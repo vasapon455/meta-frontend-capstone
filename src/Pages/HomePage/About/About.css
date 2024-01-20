@@ -1,0 +1,70 @@
+#about-section {
+  height: 559px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+p {
+  font-family: Karla;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.shop {
+  width: 255px;
+  height: 270px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../../public/assets/restaurant.jpg");
+  position: relative;
+  left: 120px;
+  top: 85px;
+}
+
+.chef {
+  position: relative;
+  width: 255px;
+  height: 270px;
+  right: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../../public/assets/Mario and Adrian A.jpg");
+}
+
+@media screen and (max-width: 1000px) {
+  #about-section {
+    height: 559px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+  .shop {
+    max-width: 255px;
+    height: 270px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../../public/assets/restaurant.jpg");
+    position: relative;
+    left: 0px;
+    top: 0px;
+  }
+
+  .chef {
+    position: relative;
+    max-width: 255px;
+    height: 270px;
+    right: 0px;
+    bottom: 0px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../../public/assets/Mario and Adrian A.jpg");
+  }
+}
