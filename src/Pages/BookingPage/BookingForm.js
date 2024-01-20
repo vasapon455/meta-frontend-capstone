@@ -9,7 +9,7 @@ export default function BookingForm({
   const today = new Date().toISOString().slice(0, 10);
   console.log(today);
 
-  const data = { date: today, time: "", guest: "", occasion: "" };
+  const data = { date: today, time: availableTime, guest: 1, occasion: "" };
 
   const [formData, setFormData] = useState(data);
 
@@ -34,13 +34,19 @@ export default function BookingForm({
         id="res-date"
         value={formData.date}
         onChange={handleChange}
+        min={today}
+        data-testid="select-date"
+        required
       />
       <label htmlFor="res-time">Choose time</label>
       <select
         className="dropdown"
+        type="time"
         id="res-time"
         value={formData.time}
         onChange={handleChange}
+        data-testid="select-time"
+        required
       >
         {availableTime.map((time) => (
           <option data-testid="booking-time" key={time}>
@@ -59,6 +65,8 @@ export default function BookingForm({
         id="guests"
         value={formData.guest}
         onChange={handleChange}
+        required
+        data-testid="specify-guest"
       />
       <label htmlFor="occasion">Occasion</label>
       <select
@@ -66,14 +74,18 @@ export default function BookingForm({
         id="occasion"
         value={formData.occasion}
         onChange={handleChange}
+        data-testid="select-occasion"
+        required
       >
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
       <input
+        aria-label="On Click"
         type="submit"
-        value="Make Your reservation"
+        value="Reserve Table"
         className="btn-small"
+        data-testid="submit"
       />
     </form>
   );

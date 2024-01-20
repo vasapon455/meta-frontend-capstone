@@ -27,6 +27,7 @@ export default function Card({ image, text, name, price, descriptiion }) {
           justifyContent: "flex-start",
           alignItems: "center",
         }}
+        aria-label="On Click"
       >
         <a href="order" role="button">
           Order a delivery
