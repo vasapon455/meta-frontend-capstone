@@ -1,12 +1,37 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import BookingForm from "./components/BookingPage/BookingForm";
+import { render, screen } from "@testing-library/react";
+import BookingPage from "./Pages/BookingPage/BookingPage";
+import { fetchAPI } from "./utils/fakeAPI";
+import { useReducer } from "react";
+
+const initializeTimes = () => {
+  const date = new Date();
+  return [...fetchAPI(date)];
+};
+
+const updateTime = (availableTime, date) => {
+  const response = fetchAPI(new Date(date));
+  return response.length !== 0 ? response : availableTime;
+};
 
 test("Renders the BookingForm heading", () => {
-  render(<BookingForm times={["10:00", "11:00"]} />);
-  const headingElement = screen.getByText("Make Your reservation");
+  render(<BookingPage availableTime={initializeTimes()} />);
+  const headingElement = screen.getByText("Book Now");
   expect(headingElement).toBeInTheDocument();
 });
 
-test(" test for the initializeTimes function to validate that it returns the correct expected value.", () => {
-  render(<BookingForm times={["10:00", "11:00"]} />);
+test("Render bookingform and test initialize time", async () => {
+  render(<BookingPage availableTime={initializeTimes()} />);
+  const options = await screen.findAllByTestId("booking-time");
+  expect(options.length).toBeGreaterThanOrEqual(1);
+});
+
+test("Return value from Update Time function", async () => {
+  render(
+    <BookingPage
+      availableTime={initializeTimes()}
+      setAvailableTime={updateTime}
+    />
+  );
+  const options = await screen.findAllByTestId("booking-time");
+  expect(options.length).toBeGreaterThanOrEqual(1);
 });
