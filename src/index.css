@@ -29,6 +29,12 @@ h2 {
   margin: 0;
 }
 
+label {
+  font-family: "Karla", serif;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
 h3 {
   font-family: "Karla", serif;
   font-size: 18px;
@@ -56,4 +62,8 @@ span {
   border-radius: 16px;
   background-color: #f4ce14;
   border: none;
+}
+
+.btn-small:hover {
+  background-color: #fff0a3;
 }
