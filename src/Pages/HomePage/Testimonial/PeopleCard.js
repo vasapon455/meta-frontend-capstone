@@ -16,15 +16,17 @@ export default function PeopleCard({ name, image, review, point }) {
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          gap: "0px",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#FFFFFF",
-          width: "100%",
+          width: "auto",
         }}
       >
         <img className="people-image" src={image} alt="people" />
-        <h4>{name}</h4>
+        <div style={{ textAlign: "center", padding: "10px" }}>
+          <h4>{name}</h4>
+        </div>
       </div>
       <p
         style={{

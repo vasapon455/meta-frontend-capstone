@@ -43,7 +43,9 @@ export default function BookingForm({
         onChange={handleChange}
       >
         {availableTime.map((time) => (
-          <option key={time}>{time}</option>
+          <option data-testid="booking-time" key={time}>
+            {time}
+          </option>
         ))}
       </select>
 
